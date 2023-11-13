@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* futuramente essa tag deve ser usada junto ao useState */
+.flip {
+  transform: rotateY(180deg);
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.shadow-custom {
+  box-shadow: .5em .5em .5em rgba(0, 0, 0, .3);
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg)
+}
