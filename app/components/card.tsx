@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import LogoImg from '@/app/images/logo.webp'
+
 // interface CardCmpProps { }
 // props: cardCmpProps
 
@@ -6,16 +9,23 @@ export default function CardCmp() {
     <>
       <div className="preserve-3d  flip relative h-24 w-20">
         <div
-          className="backface-hidden shadow-custom rotate-y-180 absolute flex h-full
-         w-full items-center justify-center rounded-2xl bg-violet-700"
+          className="backface-hidden shadow-custom rotate-y-180 absolute flex
+           h-full w-full items-center justify-center rounded-2xl bg-blue-700"
         >
-          1
+          <Image
+            src={LogoImg}
+            alt="Logo"
+            style={{
+              width: '80%',
+              height: 'auto',
+            }}
+          />
         </div>
         <div
           className="backface-hidden shadow-custom absolute flex h-full w-full
-         items-center justify-center rounded-2xl bg-purple-500"
+         items-center justify-center rounded-2xl bg-blue-200"
         >
-          2
+          tecnologia
         </div>
       </div>
     </>

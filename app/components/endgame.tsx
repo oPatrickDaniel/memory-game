@@ -1,12 +1,17 @@
 // interface endGameCmpProps {
 
 // }
-export default function endGameCmp() {
+export default function EndGameCmp() {
   return (
-    <>
-      <h3>Parabéns. Você completou o jogo</h3>
-      <p id="attempts"></p>
-      <button id="restart">Jogar novamente</button>
-    </>
+    <div
+      className="absolute flex h-full w-full flex-col items-center justify-center
+       gap-8 bg-black/75 text-white "
+    >
+      <h2 className="text-4xl font-bold">Parabéns. Você completou o jogo</h2>
+      <p className="text-3xl">Tentativas: 22</p>
+      <button className="rounded-full bg-blue-600 px-8 py-4 text-xl">
+        Jogar novamente
+      </button>
+    </div>
   )
 }
