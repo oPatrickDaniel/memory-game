@@ -1,69 +1,65 @@
-
-export interface card {
-    id: string
-    icon: string
-    flipped: boolean
+export interface CardProps {
+  id: string
+  icon: string
+  flipped: boolean
 }
-
 export class Card {
-    private _deck: card[]
-    private _cardsTechs
+  private _deck: CardProps[]
+  private _cardsTechs
 
-    constructor(cardsTechs: string[]) {
-        this._cardsTechs = cardsTechs
-        this._deck = new Array
-    }
+  constructor(cardsTechs: string[]) {
+    this._cardsTechs = cardsTechs
+    this._deck = []
+    this.createDeckOfCards()
+  }
 
-    set deck(deck: card[]) {
-        this._deck = deck
-    }
+  set deck(cards: CardProps[]) {
+    this._deck = cards
+  }
 
-    get deck() {
-        return this._deck
-    }
+  get deck() {
+    return this._deck
+  }
 
-    set cardsTechs(cardsTechs: string[]) {
-        this._cardsTechs = cardsTechs
-    }
+  set cardsTechs(cardsTechs: string[]) {
+    this._cardsTechs = cardsTechs
+  }
 
-    get cardsTechs() {
-        return this._cardsTechs
-    }
+  get cardsTechs() {
+    return this._cardsTechs
+  }
 
+  private createPairsOfCards(tech: string): CardProps[] {
+    // cria pares de cartas com base em tecnologias
+    return [
+      {
+        id: `${tech}01`,
+        icon: tech,
+        flipped: false,
+      },
+      {
+        id: `${tech}02`,
+        icon: tech,
+        flipped: false,
+      },
+    ]
+  }
 
-    private createPairsOfCards(tech: string): card[] {
-        // cria pares de cartas com base em tecnologias
-        return [{
-            id: `${tech}01`,
-            icon: tech,
-            flipped: false,
-        },
-        {
-            id: `${tech}02`,
-            icon: tech,
-            flipped: false,
-        }]
-    }
+  private shuffleDeck(deck: CardProps[]): CardProps[] {
+    // embaralha as cartas
+    return deck.sort(() => Math.random() - 0.5)
+  }
 
-    private shuffleCards(card: card[]) {
-        // embaralha as cartas
-        for (let i = card.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [card[i], card[j]] = [card[j], card[i]];
-        }
-        return card;
-    }
-
-    public createDeckOfCards() {
-        //cria as cartas do tabuleiro
-        let deck: card[] = this.deck
-        let cardsTechs = this.cardsTechs
-        cardsTechs.forEach((tech) => {
-            deck.push(...this.createPairsOfCards(tech))
-        })
-        deck = this.shuffleCards(this.deck)
-        this.deck = deck
-        console.log('Baralho criado com sucesso')
-        return this.deck
-    }
+  protected createDeckOfCards() {
+    // cria as cartas do tabuleiro
+    let deck: CardProps[] = this.deck
+    const cardsTechs = this.cardsTechs
+    cardsTechs.forEach((tech) => {
+      deck.push(...this.createPairsOfCards(tech))
+    })
+    deck = this.shuffleDeck(deck)
+    this.deck = deck
+    console.log('Baralho criado com sucesso')
+    return this.deck
+  }
 }
