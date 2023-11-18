@@ -4,7 +4,7 @@
 export default function EndGameCmp() {
   return (
     <div
-      className="absolute flex h-full w-full flex-col items-center justify-center
+      className="absolute hidden h-full w-full flex-col items-center justify-center
        gap-8 bg-black/75 text-white "
     >
       <h2 className="text-4xl font-bold">Parabéns. Você completou o jogo</h2>

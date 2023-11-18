@@ -13,7 +13,7 @@ export default function Home() {
           <CardCmp />
         </div>
       </div>
-      {/* <EndGameCmp /> */}
+      <EndGameCmp />
     </main>
   )
 }
