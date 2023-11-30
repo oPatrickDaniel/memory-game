@@ -13,7 +13,7 @@ export default function EndGameCmp({
 }: EndGameCmpProps) {
   return gameOver ? (
     <div
-      className="absolute flex h-full w-full flex-col items-center justify-center
+      className="absolute flex h-screen w-screen flex-col items-center justify-center
        gap-8 bg-black/75 p-2 text-white"
     >
       <h2 className="text-center text-4xl font-bold">
