@@ -70,6 +70,10 @@ export class Game extends Card {
     return this._attempts
   }
 
+  get lockMode() {
+    return this._lockMode
+  }
+
   public setCardInMemory(id: string): boolean {
     const card: CardProps | undefined = this._deck.find((c) => c.id === id)
     console.log(card)

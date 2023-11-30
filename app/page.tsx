@@ -29,6 +29,7 @@ export default function Home() {
   }, [])
 
   function compareCards(id: string): void {
+    if (game.lockMode) return
     const updatedCards = [...cards]
 
     if (game.setCardInMemory(id)) {
