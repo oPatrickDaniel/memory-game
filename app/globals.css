@@ -23,3 +23,15 @@
 .rotate-y-180 {
   transform: rotateY(180deg)
 }
+
+@media (max-width: 280px) {
+  .xs\:h-16 {
+    width: 4rem;
+    /* 64px */
+  }
+
+  .xs\:h-14 {
+    width: 3.5rem;
+    /* 56px */
+  }
+}

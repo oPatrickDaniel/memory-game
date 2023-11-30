@@ -22,9 +22,14 @@ export default function CardCmp({ card, turnCard }: CardCmpProps) {
           console.log(card.flipped)
         }}
         id={card.id}
-        className={`preserve-3d
+        className={`
         ${card.flipped ? 'flip' : ''}
-         relative h-24 w-20`}
+        xs:h-16 xs:h-14 
+        preserve-3d
+        relative
+        h-20 w-16
+        sm:h-24 sm:w-20
+        `}
         data-icon={card.icon}
       >
         <div
